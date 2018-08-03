@@ -44,6 +44,13 @@ class App extends Component {
         repeated: repeated,
         images: imagesArr
       })
+      
+      if((this.state.score+1) === 10){
+      alert("congrats, you have won!")
+      this.setState({
+        repeated: true
+      })
+      }
     }
     else if(repeated === true){
       alert("you have lost :(\nYour final score was " + this.state.score)
@@ -57,8 +64,8 @@ class App extends Component {
   render() {
 
     return (
-
-      !this.state.repeated ?
+      
+      !this.state.repeated?
         (<Wrapper>
           <Header score={this.state.score}>Welcome To The Clicky Game</Header>
           {this.state.images.map(image => (
